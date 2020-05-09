@@ -2,6 +2,10 @@
  * Get all of the mermaid code block and transform them into the format can be parsed by mermaid.
  */
 export function initMermaid() {
+  if (!window.mermaid) {
+    return;
+  }
+
   let codes = document.getElementsByClassName("language-mermaid");
 
   while( codes.length > 0 ) {
@@ -19,4 +23,6 @@ export function initMermaid() {
 
     p.replaceChild(chart, code.parentNode);
   }
+
+  mermaid.init();;
 }

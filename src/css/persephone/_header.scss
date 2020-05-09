@@ -95,7 +95,7 @@ a.nav-link {
   display: inline-block;
   padding: 5px 0.25rem;
   position: relative;
-  &:after {
+  &:after, &:before {
     @include pseudo();
     left: 0;
     bottom: 0;
@@ -104,7 +104,13 @@ a.nav-link {
     width: 0;
     transition: width 0.25s ease-out;
   }
+  &:before {
+    background-color: var(--gray);
+  }
   &:hover:after {
+    width: 100%;
+  }
+  &.emit:before {
     width: 100%;
   }
   &.active:after {
